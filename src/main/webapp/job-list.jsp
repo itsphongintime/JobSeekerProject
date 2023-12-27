@@ -1,5 +1,12 @@
-<%@ page import="entity.SQLConnection"%>
+<%@ page import="java.util.ArrayList"%>
 
+<%@ page import="entity.SQLConnection"%>
+<%@ page import="entity.Job"%>
+<%@ page import="entity.Company"%>
+<%@ page import="entity.JobServices"%>
+
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -7,7 +14,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>JobEntry - Job Portal Website Template</title>
+    <title>JobEntry - Job Portal Website</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -121,6 +128,15 @@
                     </ul>
                     <div class="tab-content">
                         <div id="tab-1" class="tab-pane fade show p-0 active">
+                        
+                        <%
+                        ArrayList<Job> jobs = new ArrayList<Job> ();
+                        %>
+                        
+                        
+                        <% for (Job job :  ) %>
+                        
+                        
                         
                             <div class="job-item p-4 mb-4">
                                 <div class="row g-4">

@@ -1,44 +1,43 @@
 package entity;
 
 public class Company {
-	private int companyID;
-	private String companyName;
-	private String companyDetail;
+	private int ID;
+	private String name;
+	private String detail;
 	
 	public Company() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Company(int companyID, String companyName, String companyDetail) {
+	public Company(int iD, String name, String detail) {
 		super();
-		this.companyID = companyID;
-		this.companyName = companyName;
-		this.companyDetail = companyDetail;
+		ID = iD;
+		this.name = name;
+		this.detail = detail;
 	}
 
-	public int getCompanyID() {
-		return companyID;
+	public int getID() {
+		return ID;
 	}
 
-	public void setCompanyID(int companyID) {
-		this.companyID = companyID;
+	public void setID(int iD) {
+		ID = iD;
 	}
 
-	public String getCompanyName() {
-		return companyName;
+	public String getName() {
+		return name;
 	}
 
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getCompanyDetail() {
-		return companyDetail;
+	public String getDetail() {
+		return detail;
 	}
 
-	public void setCompanyDetail(String companyDetail) {
-		this.companyDetail = companyDetail;
+	public void setDetail(String detail) {
+		this.detail = detail;
 	}
-	
 	
 }

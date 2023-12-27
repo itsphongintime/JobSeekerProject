@@ -1,85 +1,84 @@
 package entity;
 
 public class Job {
-	private int jobID;
-	private String jobTitle;
-	private String jobNature;
-	private String jobSalary;
-	private String jobLocation;
-	private String jobVacancy;
+	private int ID;
+	private String title;
+	private String type;
+	private String salary;
+	private String location;
+	private String vacancy;
 	private String publishedDate;
-	private String jobDescription;
-	private String jobResponsibility;
-	private String jobQualifications;
-	private int companyID;
+	private String description;
+	private String responsibility;
+	private String qualifications;
+	private Company company;
 	
 	public Job() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Job(int jobID, String jobTitle, String jobNature, String jobSalary, String jobLocation, String jobVacancy,
-			String publishedDate, String jobDescription, String jobResponsibility, String jobQualifications,
-			int companyID) {
+	public Job(int iD, String title, String type, String salary, String location, String vacancy,
+			String publishedDate, String description, String responsibility, String qualifications, Company company) {
 		super();
-		this.jobID = jobID;
-		this.jobTitle = jobTitle;
-		this.jobNature = jobNature;
-		this.jobSalary = jobSalary;
-		this.jobLocation = jobLocation;
-		this.jobVacancy = jobVacancy;
+		ID = iD;
+		this.title = title;
+		this.type = type;
+		this.salary = salary;
+		this.location = location;
+		this.vacancy = vacancy;
 		this.publishedDate = publishedDate;
-		this.jobDescription = jobDescription;
-		this.jobResponsibility = jobResponsibility;
-		this.jobQualifications = jobQualifications;
-		this.companyID = companyID;
+		this.description = description;
+		this.responsibility = responsibility;
+		this.qualifications = qualifications;
+		this.company = company;
 	}
 
-	public int getJobID() {
-		return jobID;
+	public int getID() {
+		return ID;
 	}
 
-	public void setJobID(int jobID) {
-		this.jobID = jobID;
+	public void setID(int iD) {
+		ID = iD;
 	}
 
-	public String getJobTitle() {
-		return jobTitle;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setJobTitle(String jobTitle) {
-		this.jobTitle = jobTitle;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
-	public String getJobNature() {
-		return jobNature;
+	public String getType() {
+		return type;
 	}
 
-	public void setJobNature(String jobNature) {
-		this.jobNature = jobNature;
+	public void setType(String type) {
+		this.type = type;
 	}
 
-	public String getJobSalary() {
-		return jobSalary;
+	public String getSalary() {
+		return salary;
 	}
 
-	public void setJobSalary(String jobSalary) {
-		this.jobSalary = jobSalary;
+	public void setSalary(String salary) {
+		this.salary = salary;
 	}
 
-	public String getJobLocation() {
-		return jobLocation;
+	public String getLocation() {
+		return location;
 	}
 
-	public void setJobLocation(String jobLocation) {
-		this.jobLocation = jobLocation;
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
-	public String getJobVacancy() {
-		return jobVacancy;
+	public String getVacancy() {
+		return vacancy;
 	}
 
-	public void setJobVacancy(String jobVacancy) {
-		this.jobVacancy = jobVacancy;
+	public void setVacancy(String vacancy) {
+		this.vacancy = vacancy;
 	}
 
 	public String getPublishedDate() {
@@ -90,37 +89,37 @@ public class Job {
 		this.publishedDate = publishedDate;
 	}
 
-	public String getJobDescription() {
-		return jobDescription;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setJobDescription(String jobDescription) {
-		this.jobDescription = jobDescription;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public String getJobResponsibility() {
-		return jobResponsibility;
+	public String getResponsibility() {
+		return responsibility;
 	}
 
-	public void setJobResponsibility(String jobResponsibility) {
-		this.jobResponsibility = jobResponsibility;
+	public void setResponsibility(String responsibility) {
+		this.responsibility = responsibility;
 	}
 
-	public String getJobQualifications() {
-		return jobQualifications;
+	public String getQualifications() {
+		return qualifications;
 	}
 
-	public void setJobQualifications(String jobQualifications) {
-		this.jobQualifications = jobQualifications;
+	public void setQualifications(String qualifications) {
+		this.qualifications = qualifications;
 	}
 
-	public int getCompanyID() {
-		return companyID;
+	public Company getCompany() {
+		return company;
 	}
 
-	public void setCompanyID(int companyID) {
-		this.companyID = companyID;
+	public void setCompany(Company company) {
+		this.company = company;
 	}
-	
+
 	
 }
