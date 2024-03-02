@@ -24,4 +24,22 @@ public class Job {
 	public Job() {
 		// TODO Auto-generated constructor stub
 	}
+
+	public Job(String title, String type, String salary, String location, String vacancy, String publishedDate,
+			String description, String responsibility, String qualifications, String logo, int companyId,
+			int categoryId) {
+		super();
+		this.title = title;
+		this.type = type;
+		this.salary = salary;
+		this.location = location;
+		this.vacancy = vacancy;
+		this.publishedDate = publishedDate;
+		this.description = description;
+		this.responsibility = responsibility;
+		this.qualifications = qualifications;
+		this.logo = logo;
+		this.companyId = companyId;
+		this.categoryId = categoryId;
+	}
 }

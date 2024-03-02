@@ -207,4 +207,38 @@ public class JobDAO {
 		}
 		return jobs;
 	}
+	
+	public ArrayList<Job> getPosterJobs (int posterId) throws SQLException {
+		ArrayList<Job> jobs = new ArrayList<Job> ();
+		
+		Connection connection = SQLConnection.makeConnection();
+
+		String sql = "select * from jobseekersql.job j join jobseekersql.poster_job p on j.id = p.job_id where p.user_id = ?";
+
+		PreparedStatement preStmt = connection.prepareStatement(sql);
+		
+		preStmt.setInt(1, posterId);
+
+		ResultSet resultSet = preStmt.executeQuery();
+
+		while (resultSet.next()) {
+			Job job = new Job();
+			job.setId(resultSet.getInt("id"));
+			job.setTitle(resultSet.getString("title"));
+			job.setType(resultSet.getString("type"));
+			job.setSalary(resultSet.getString("salary"));
+			job.setLocation(resultSet.getString("location"));
+			job.setVacancy(resultSet.getString("vacancy"));
+			job.setPublishedDate(resultSet.getString("publishedDate"));
+			job.setDescription(resultSet.getString("description"));
+			job.setResponsibility(resultSet.getString("responsibility"));
+			job.setQualifications(resultSet.getString("qualifications"));
+			job.setLogo(resultSet.getString("logo"));
+			job.setCompanyId(resultSet.getInt("company_id"));
+			job.setCategoryId(resultSet.getInt("category_id"));
+			
+			jobs.add(job);
+		}
+		return jobs;
+	}
 }
