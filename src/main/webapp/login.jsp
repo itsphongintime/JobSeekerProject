@@ -53,12 +53,12 @@
         <!-- Header End -->
         <div class="container-xxl py-5 bg-dark page-header mb-5">
             <div class="container my-5 pt-5 pb-4">
-                <h1 class="display-3 text-white mb-3 animated slideInDown">Contact</h1>
+                <h1 class="display-3 text-white mb-3 animated slideInDown">Log In</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb text-uppercase">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                        <li class="breadcrumb-item text-white active" aria-current="page">Contact</li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Log In</li>
                     </ol>
                 </nav>
             </div>
@@ -66,58 +66,61 @@
         <!-- Header End -->
 
 
-        <!-- Contact Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Log In</h1>
-                    
-                    <div class="col-md-6">
-                        <div class="wow fadeInUp" data-wow-delay="0.5s">
+		<!-- Contact Start -->
+		<div class="container-xxl py-5">
+			<div class="container">
+				<h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Log
+					In</h1>
+				<div class="row justify-content-center">
+					<div class="col-md-6">
+						<div class="wow fadeInUp" data-wow-delay="0.5s">
 
-						<c:choose>
-							<c:when
-								test="${errorMessage == 'Registered Successfully! Log In To Proceed'}">
-								<p style="color: green;">${errorMessage}</p>
-							</c:when>
-							<c:otherwise>
-								<c:if test="${not empty errorMessage}">
-									<p style="color: red;">${errorMessage}</p>
-								</c:if>
-							</c:otherwise>
-						</c:choose>
-
-
-						<form action="LogIn" method="post">
-                                <div class="center row g-3"> 
-                                    <div class="col-12">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" name="Username" placeholder="Username">
-                                            <label for="Username">Username</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-floating">
-                                            <input type="password" class="form-control" name="Password" placeholder="Password">
-                                            <label for="Password">Password</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button class="btn btn-primary w-100 py-3" type="submit" value="LOG_IN">Log In</button>
-                                    </div>
-                                </div>
-                            </form>
-                            
-                        </div>
-                    </div>
-                    
-                    <a href="register.jsp">Not registered yet? Click here</a>
-                </div>
-            </div>
-        </div>
-        <!-- Contact End -->
+							<c:choose>
+								<c:when
+									test="${errorMessage == 'Registered Successfully! Log In To Proceed'}">
+									<p style="color: green;">${errorMessage}</p>
+								</c:when>
+								<c:otherwise>
+									<c:if test="${not empty errorMessage}">
+										<p style="color: red;">${errorMessage}</p>
+									</c:if>
+								</c:otherwise>
+							</c:choose>
 
 
-        <!-- Footer Start -->
+							<form action="LogIn" method="post">
+								<div class="center row g-3">
+									<div class="col-12">
+										<div class="form-floating">
+											<input type="text" class="form-control" name="Username"
+												placeholder="Username"> <label for="Username">Username</label>
+										</div>
+									</div>
+									<div class="col-12">
+										<div class="form-floating">
+											<input type="password" class="form-control" name="Password"
+												placeholder="Password"> <label for="Password">Password</label>
+										</div>
+									</div>
+									<div class="col-12">
+										<button class="btn btn-primary w-100 py-3" type="submit"
+											value="LOG_IN">Log In</button>
+									</div>
+									<a href="register.jsp">Not registered yet? Click here</a>
+								</div>
+							</form>
+
+						</div>
+					</div>
+
+					
+				</div>
+			</div>
+		</div>
+		<!-- Contact End -->
+
+
+		<!-- Footer Start -->
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
                 <div class="row g-5">

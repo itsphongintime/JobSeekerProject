@@ -81,7 +81,7 @@
 								<p style="color: red;">${errorMessage}</p>
 							</c:if>
 
-							<form action="Register" method="post">
+							<form action="JobRegister" method="post">
 								<div class="center row g-3">
 									<div class="col-12">
 										<div class="form-floating">
