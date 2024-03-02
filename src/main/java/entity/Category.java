@@ -1,19 +1,18 @@
 package entity;
 
-
 import lombok.Data;
 import lombok.AllArgsConstructor;
 
 @Data
 @AllArgsConstructor
 
-public class Company {
-	private int id;
-	private String name;
-	private String logo;
-	private String details;
+public class Category {
+	int id;
+	String name;
+	String logo;
+	int vacancy;
 	
-	public Company() {
+	public Category() {
 		// TODO Auto-generated constructor stub
 	}
 }
