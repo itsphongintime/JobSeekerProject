@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>JobEntry - Job Portal Website Template</title>
+    <title>JobEntry - Job Portal Website</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -52,12 +53,12 @@
         <!-- Header End -->
         <div class="container-xxl py-5 bg-dark page-header mb-5">
             <div class="container my-5 pt-5 pb-4">
-                <h1 class="display-3 text-white mb-3 animated slideInDown">About Us</h1>
+                <h1 class="display-3 text-white mb-3 animated slideInDown">Job List</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb text-uppercase">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                        <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Job List</li>
                     </ol>
                 </nav>
             </div>
@@ -65,38 +66,54 @@
         <!-- Header End -->
 
 
-        <!-- About Start -->
+        <!-- Jobs Start -->
         <div class="container-xxl py-5">
             <div class="container">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                        <div class="row g-0 about-bg rounded overflow-hidden">
-                            <div class="col-6 text-start">
-                                <img class="img-fluid w-100" src="img/about-1.jpg">
-                            </div>
-                            <div class="col-6 text-start">
-                                <img class="img-fluid" src="img/about-2.jpg" style="width: 85%; margin-top: 15%;">
-                            </div>
-                            <div class="col-6 text-end">
-                                <img class="img-fluid" src="img/about-3.jpg" style="width: 85%;">
-                            </div>
-                            <div class="col-6 text-end">
-                                <img class="img-fluid w-100" src="img/about-4.jpg">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                        <h1 class="mb-4">We Help To Get The Best Job And Find A Talent</h1>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>Tempor erat elitr rebum at clita</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>Aliqu diam amet diam et eos</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>Clita duo justo magna dolore erat amet</p>
-                        <a class="btn btn-primary py-3 px-5 mt-3" href="">Read More</a>
+                <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">${category.name}'s Job Listings</h1>
+                <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane fade show p-0 active">
+
+							<c:forEach items="${jobs}" var="job">
+								<div class="job-item p-4 mb-4">
+									<div class="row g-4">
+										<div class="col-sm-12 col-md-8 d-flex align-items-center">
+
+											<img class="flex-shrink-0 img-fluid border rounded"
+												src="img/${job.logo}" alt=""
+												style="width: 80px; height: 80px;">
+											<div class="text-start ps-4">
+												<h5 class="mb-3">${job.title}</h5>
+												<span class="text-truncate me-3"><i
+													class="fa fa-map-marker-alt text-primary me-2"></i>${job.location}</span>
+												<span class="text-truncate me-3"><i
+													class="far fa-clock text-primary me-2"></i>${job.type}</span> <span
+													class="text-truncate me-0"><i
+													class="far fa-money-bill-alt text-primary me-2"></i>${job.salary}</span>
+											</div>
+										</div>
+										<div
+											class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+											<div class="d-flex mb-3">
+												<a class="btn btn-primary"
+													href="JobDetail?jobId=${job.id}">More Details</a>
+											</div>
+											<small class="text-truncate"><i
+												class="far fa-calendar-alt text-primary me-2"></i>Date Line:
+												${job.publishedDate}</small>
+										</div>
+									</div>
+								</div>
+							</c:forEach>
+							
+							<a class="btn btn-primary py-3 px-5" href="JobList">Browse More Jobs</a>
+						</div>
+						
                     </div>
                 </div>
             </div>
         </div>
-        <!-- About End -->
+        <!-- Jobs End -->
 
 
         <!-- Footer Start -->
