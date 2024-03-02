@@ -13,9 +13,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import DAO.CategoryDAO;
 import DAO.CompanyDAO;
+import DAO.JobDAO;
+import DAO.PosterJobsDAO;
+import DAO.QualificationDAO;
+import DAO.ResponsibilityDAO;
 import DAO.UserDAO;
 import entity.Category;
 import entity.Company;
@@ -65,9 +70,11 @@ public class JobRegisterController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			UserDAO userDAO = new UserDAO();
-			
-			
+			JobDAO jobDAO = new JobDAO();
+			QualificationDAO qualificationDAO = new QualificationDAO();
+			ResponsibilityDAO responsibilityDAO = new ResponsibilityDAO();
+			PosterJobsDAO posterJobsDAO = new PosterJobsDAO();
+
 			String title = request.getParameter("Title");
 			String type = request.getParameter("type");
 			String salary = request.getParameter("Salary");
@@ -75,7 +82,7 @@ public class JobRegisterController extends HttpServlet {
 			String vacancy = request.getParameter("vacancy");
 			String Description = request.getParameter("Description");
 			String BriefQualification = request.getParameter("BriefQualification");
-			String[] qualifications = request.getParameterValues("qualification[]");
+			String[] qualifications = request.getParameterValues("qualifications[]");
 			String BriefResponsibility = request.getParameter("BriefResponsibility");
 			String[] responsibilities = request.getParameterValues("responsibilities[]");
 			String company = request.getParameter("company");
@@ -89,8 +96,18 @@ public class JobRegisterController extends HttpServlet {
 			
 			Job job = new Job(title, type, salary, location, vacancy, formattedDate, Description, BriefResponsibility, BriefQualification, "com-logo-2.jpg", companyId, categoryId);
 			
+			Job currJob = jobDAO.registerNewJob(job);
 			
+			qualificationDAO.registerNewQualifications(qualifications, currJob.getId());
+			responsibilityDAO.registerNewResponsibilities(responsibilities, currJob.getId());
 			
+			HttpSession session = request.getSession();
+		    User user = (User) session.getAttribute("user");
+		    posterJobsDAO.updateJobPosters(currJob.getId(), user.getId());
+		    
+			request.setAttribute("errorMessage", "Job Listing uploaded successfully");
+			RequestDispatcher rd = request.getRequestDispatcher("PosterJobs");
+			rd.forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

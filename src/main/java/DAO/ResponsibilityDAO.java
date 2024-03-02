@@ -33,4 +33,36 @@ public class ResponsibilityDAO {
 		}
 		return responsibilities;
 	}
+	
+	public void registerNewResponsibilities(String[] responsibilities, int jobId) throws SQLException {
+	    Connection connection = SQLConnection.makeConnection();
+	    
+	    // The base SQL query for inserting responsibilities
+	    String sqlQuery = "INSERT INTO jobseekersql.responsibility (description, job_id) VALUES ";
+
+	 // Building the part of the query that holds the placeholders for the values
+	    StringBuilder placeholders = new StringBuilder();
+	    for (int i = 0; i < responsibilities.length; i++) {
+	        placeholders.append("(?, ?)");
+	        if (i < responsibilities.length - 1) {
+	            placeholders.append(", ");
+	        }
+	    }
+
+	    // Finalize the SQL query
+	    sqlQuery += placeholders;
+
+	    PreparedStatement preStmt = connection.prepareStatement(sqlQuery);
+	    
+	    // Loop through the responsibilities array and set each value in the PreparedStatement
+	    
+	    int index = 1;
+	    for (String responsibility : responsibilities) {
+	        preStmt.setString(index++, responsibility); // Set description
+	        preStmt.setInt(index++, jobId);             // Set job_id
+	    }
+
+	    // Execute the update
+	    preStmt.executeUpdate();
+	}
 }

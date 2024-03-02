@@ -33,4 +33,36 @@ public class QualificationDAO {
 		}
 		return qualifications;
 	}
+	
+	public void registerNewQualifications(String[] qualifications, int jobId) throws SQLException {
+	    Connection connection = SQLConnection.makeConnection();
+	    
+	    // The base SQL query for inserting qualifications
+	    String sqlQuery = "INSERT INTO jobseekersql.qualification (description, job_id) VALUES ";
+
+	    // Building the part of the query that holds the placeholders for the values
+	    StringBuilder placeholders = new StringBuilder();
+	    for (int i = 0; i < qualifications.length; i++) {
+	        placeholders.append("(?, ?)");
+	        if (i < qualifications.length - 1) {
+	            placeholders.append(", ");
+	        }
+	    }
+
+	    // Finalize the SQL query
+	    sqlQuery += placeholders;
+
+	    PreparedStatement preStmt = connection.prepareStatement(sqlQuery);
+	    
+	    // Loop through the qualifications array and set each value in the PreparedStatement
+	    
+	    int index = 1;
+	    for (String qualification : qualifications) {
+	        preStmt.setString(index++, qualification); // Set description
+	        preStmt.setInt(index++, jobId);             // Set job_id
+	    }
+
+	    // Execute the update
+	    preStmt.executeUpdate();
+	}
 }
