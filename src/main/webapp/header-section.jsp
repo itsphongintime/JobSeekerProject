@@ -23,6 +23,9 @@
                     <a href="JobList" class="nav-item nav-link">Jobs</a>
                     <a href="Category" class="nav-item nav-link">Categories</a>
                     <a href="contact.jsp" class="nav-item nav-link">Contact</a>
+                    <c:if test="${sessionScope.user.type == 'Poster'}">
+                    	<a href="PosterJobs" class="nav-item nav-link">My Posts</a>
+                    </c:if>
                 </div>
                 <c:if test="${empty sessionScope.user}">
                 <a href="login.jsp" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Log In<i class="fa fa-arrow-right ms-3"></i></a>
